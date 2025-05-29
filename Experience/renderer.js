@@ -20,14 +20,15 @@ export default class Renderer {
 
         // Enable physically accurate lighting
         this.renderer.physicallyCorrectLights = true;
-        this.renderer.outputEncoding = THREE.sRGBEncoding; // Ensure correct color space
-        this.renderer.toneMapping = THREE.CineonToneMapping; // Set tone mapping for realistic output
-        this.renderer.toneMappingExposure = 1.75; // Adjust exposure level
+        // Use the new color management system
+        this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+        this.renderer.toneMapping = THREE.CineonToneMapping;
+        this.renderer.toneMappingExposure = 1.75;
         this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Soft shadows
+        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
         // Set background color (similar to Blender default)
-        this.renderer.setClearColor(0xeeeeee, 1); // Light grey background (adjust as needed)
+        this.renderer.setClearColor(0xeeeeee, 1);
 
         // Set the renderer size and pixel ratio for responsiveness
         this.renderer.setSize(this.sizes.width, this.sizes.height);
