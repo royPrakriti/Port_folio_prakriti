@@ -4,13 +4,22 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false,
-    minify: true,
-    target: 'esnext'
+    sourcemap: true,
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three-vendor': ['three'],
+          'gsap-vendor': ['gsap']
+        }
+      }
+    }
   },
   server: {
     port: 3000,
     open: true
   },
-  // other configurations...
+  optimizeDeps: {
+    include: ['three', 'gsap']
+  }
 }) 
