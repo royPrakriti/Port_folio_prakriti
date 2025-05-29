@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/Port_folio_prakriti/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
